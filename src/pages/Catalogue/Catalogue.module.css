@@ -1,0 +1,21 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
+  gap: 16px;
+}
+.item {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.link {
+  padding: 4px;
+  margin-top: 8px;
+  margin-bottom: 0;
+  color: black;
+  background-color: lightgrey;
+  border-radius: 5px;
+}
