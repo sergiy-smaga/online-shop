@@ -26,9 +26,12 @@
   border-radius: 5px;
   cursor: pointer;
   transition: 250ms ease-in;
+  background-color: #bbb;
+  border: 1px solid #bbb;
 }
 .close:hover {
-  background-color: lightgrey;
+  background-color: #ddd;
+  border: 1px solid #ddd;
 }
 .form {
   margin-top: 25px;
@@ -56,9 +59,12 @@
   border-radius: 5px;
   cursor: pointer;
   transition: all 250ms ease-in;
+  background-color: #bbb;
+  border: 1px solid #bbb;
 }
 .button:hover {
-  background-color: lightgrey;
+  background-color: #ddd;
+  border: 1px solid #ddd;
 }
 .error {
   position: absolute;

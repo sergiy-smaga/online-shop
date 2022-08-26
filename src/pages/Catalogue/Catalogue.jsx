@@ -27,13 +27,14 @@ export default function Catalogue({ handleButtonClick, isLogged }) {
             <Link to={`${product.id}`}>{product.title}</Link>
             <p>{product.price}</p>
             <button type="button">Add to cart</button> */}
-            <img alt={product.title} src={product.image} />
+            <img className={css.img} alt={product.title} src={product.image} />
             <Link className={css.link} to={`products/${product.id}`}>
               {product.title}
             </Link>
-            <p>{product.price} USD</p>
+            <p className={css.price}>{product.price} USD</p>
             {isLogged ? (
               <button
+                className={css.button}
                 onClick={() => {
                   handleButtonClick(product);
                 }}
@@ -42,7 +43,9 @@ export default function Catalogue({ handleButtonClick, isLogged }) {
                 Add to cart
               </button>
             ) : (
-              <p>Чтобы добавить товар в корзину залогинтесь</p>
+              <p className={css.notify}>
+                Чтобы добавить товар в корзину залогинтесь
+              </p>
             )}
           </li>
         );

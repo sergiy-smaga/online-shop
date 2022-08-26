@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <div>
+    <div style={{ padding: 15, textAlign: 'left' }}>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro recusandae
       culpa aliquid quos! Obcaecati unde iste reprehenderit maiores deleniti
       expedita explicabo vel modi, nihil odit eaque libero ea non illo!

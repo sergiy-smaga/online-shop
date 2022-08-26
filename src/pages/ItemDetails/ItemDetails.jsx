@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { getProduct } from '../services/api';
+import { getProduct } from '../../services/api';
 import { useParams } from 'react-router-dom';
+import css from './ItemDetails.module.css';
 
 export default function ItemDetails({ handleButtonClick, isLogged }) {
   const { itemId } = useParams();
@@ -28,14 +29,15 @@ export default function ItemDetails({ handleButtonClick, isLogged }) {
   }, [itemId]);
 
   return (
-    <main>
+    <main className={css.container}>
       <img width="300" alt={product.title} src={product.image} />
       <h3>{product.title}</h3>
-      <p>{product.price}</p>
+      <p>{product.price} USD</p>
       <p>{product.description}</p>
       {isLogged ? (
-        <div>
+        <div className={css.wrapper}>
           <button
+            className={css.button}
             disabled={!counter}
             onClick={() => {
               handleButtonClick(product, counter);
@@ -44,16 +46,21 @@ export default function ItemDetails({ handleButtonClick, isLogged }) {
           >
             Add to cart
           </button>
-          <button disabled={!counter} onClick={increase} type="button">
+          <button
+            className={css.button}
+            disabled={!counter}
+            onClick={increase}
+            type="button"
+          >
             -
           </button>
           <p>{counter}</p>
-          <button onClick={decrease} type="button">
+          <button className={css.button} onClick={decrease} type="button">
             +
           </button>
         </div>
       ) : (
-        <p>Чтобы добавить товар в корзину залогинтесь</p>
+        <p className={css.notice}>Чтобы добавить товар в корзину залогинтесь</p>
       )}
     </main>
   );

@@ -2,7 +2,7 @@ import style from './App.module.css';
 import { Routes, Route } from 'react-router-dom';
 import SharedLayout from './SharedLayout/SharedLayout.jsx';
 import Catalogue from '../pages/Catalogue/Catalogue';
-import ItemDetails from '../pages/ItemDetails';
+import ItemDetails from '../pages/ItemDetails/ItemDetails.jsx';
 import About from '../pages/About';
 import NotFounded from '../pages/NotFounded';
 import { Modal } from '../components/Modal/Modal.jsx';

@@ -24,9 +24,13 @@ export default function SharedLayout({
           </NavLink>
         </nav>
         {isLogged && (
-          <div>{`В корзине ${cartItem} товаров на сумму ${cartValue} USD`}</div>
+          <div>{`В корзине ${cartItem} товаров на сумму ${cartValue.toFixed(
+            2
+          )} USD`}</div>
         )}
-        <button onClick={handleLogging}>{isLogged ? 'Выход' : 'Войти'}</button>
+        <button className={css.button} onClick={handleLogging}>
+          {isLogged ? 'Выход' : 'Войти'}
+        </button>
       </header>
       <Outlet />
     </div>

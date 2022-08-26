@@ -2,12 +2,7 @@ import { createPortal } from 'react-dom';
 import css from './Modal.module.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// условие для правильного логина и пароля
-const LOGIN = {
-  login: 'react',
-  password: 'router',
-};
+import LOGIN from '../../login';
 
 const modalRoot = document.querySelector('#modal-root');
 
