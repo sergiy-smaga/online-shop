@@ -1,10 +1,8 @@
-// const BASIC_URL = 'https://api.escuelajs.co/api/v1/products';
-
 const BASIC_URL = 'https://fakestoreapi.com/products';
+export const PAGINATION_STEP = 5;
 
-export const getProducts = async () => {
-  // const res = await fetch(`${BASIC_URL}?offset=0&limit=${number}`);
-  const res = await fetch(`${BASIC_URL}`);
+export const getProducts = async limit => {
+  const res = await fetch(`${BASIC_URL}?limit=${limit}`);
   const products = await res.json();
   return products;
 };

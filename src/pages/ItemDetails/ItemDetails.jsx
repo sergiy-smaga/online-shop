@@ -2,17 +2,23 @@ import { useEffect, useState } from 'react';
 import { getProduct } from '../../services/api';
 import { useParams } from 'react-router-dom';
 import css from './ItemDetails.module.css';
+import useLoggingSlice from '../../redux/userSlice';
+import useCart from '../../redux/cartSlice';
 
-export default function ItemDetails({ handleButtonClick, isLogged }) {
+export default function ItemDetails() {
   const { itemId } = useParams();
+
   const [product, setProduct] = useState({});
   const [counter, setCounter] = useState(0);
 
-  const increase = () => {
+  const { isLogged } = useLoggingSlice();
+  const { handleAddItem } = useCart();
+
+  const decrease = () => {
     setCounter(prev => (prev ? prev - 1 : prev));
   };
 
-  const decrease = () => {
+  const increase = () => {
     setCounter(prev => prev + 1);
   };
 
@@ -40,7 +46,7 @@ export default function ItemDetails({ handleButtonClick, isLogged }) {
             className={css.button}
             disabled={!counter}
             onClick={() => {
-              handleButtonClick(product, counter);
+              handleAddItem({ ...product, counter });
             }}
             type="button"
           >
@@ -49,13 +55,13 @@ export default function ItemDetails({ handleButtonClick, isLogged }) {
           <button
             className={css.button}
             disabled={!counter}
-            onClick={increase}
+            onClick={decrease}
             type="button"
           >
             -
           </button>
           <p>{counter}</p>
-          <button className={css.button} onClick={decrease} type="button">
+          <button className={css.button} onClick={increase} type="button">
             +
           </button>
         </div>

@@ -3,13 +3,16 @@ import css from './Modal.module.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LOGIN from '../../login';
+import useLoggingSlice from '../../redux/userSlice';
 
 const modalRoot = document.querySelector('#modal-root');
 
-export const Modal = ({ onClose, setIsLogged }) => {
+export const Modal = ({ onClose }) => {
   const navigate = useNavigate();
 
   const [isError, setIsError] = useState(false);
+
+  const { handleLogging } = useLoggingSlice();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -19,7 +22,7 @@ export const Modal = ({ onClose, setIsLogged }) => {
       setIsError(true);
     } else {
       onClose();
-      setIsLogged(true);
+      handleLogging(login.value);
       navigate('/', { replace: true });
     }
     e.target.reset();
